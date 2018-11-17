@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i,  dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;                               /* обнуляем отступы и убираем бордюры */
+        vertical-align: baseline;          /* приводим все к одной базовой линии */
+        background: transparent;      /* чтобы не проскакивали левые фоны, установленные по умолчанию */
+        font-size: 100%;                     /* размер шрифта всем одинаковый */
+    }
+    .main-block{
+        width: 490px;
+        height: 640px;
+        margin-left: 240px;
+    }
+    .screen-main{
+       border: 1px solid black;
+        height: 533px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 73px;
+        left: 536px;
+        background: url("b.jpg") 100% 100% no-repeat;
+        display: block;
+    }
+    .screen-top{
+
+
+        height: 28px;
+        z-index: 2;
+        width: 314px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 73px;
+        left: 536px;
+        background: rgba(0,0,0,0.8);
+        box-sizing: border-box;
+        padding: 5px 10px 3px 10px;
+    }
+    .mess-warn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;width: 314px;
+
+        z-index: 2;
+        width: 314px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 103px;
+        left: 536px;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        font-size: 1.3em;
+        box-sizing: border-box;
+        padding: 5px 10px 3px 10px;
+    }
+
+    .screen-bottom{
+
+
+        height: 68px;
+        width: 312px;
+
+        position: absolute;
+        top: 538px;
+        left: 536px;
+
+
+    }
+    .fa-phone-square{
+        float: left;
+        margin-left: 50px;
+        color: limegreen;
+        font-size: 50px;
+    }
+    .fa-envelope-square{
+        float:right;
+        margin-right: 50px;
+        color: limegreen;
+        font-size: 50px;
+    }
+    .fa-bluetooth-b{
+        color: white;
+        float: right;
+    }
+    .fa-wifi{
+        color: white;
+        margin-left: 10px;
+        float: right;
+    }
+    .fa-battery-full{
+        color: white;
+        margin-left: 10px;
+        float: right;
+    }
+    .fa-battery-half{
+        display: none;
+        color: orange;
+        margin-left: 10px;
+        float: right;
+    }
+    .fa-battery-quarter{
+        display: none;
+        color: red;
+        margin-left: 10px;
+        float: right;
+    }
+    #time{
+        font-size: 17px;
+        color: white;
+        float: left;
+
+
+    }
+    .main-btn{
+        height: 34px;
+        width: 63px;
+        position: absolute;
+        top: 622px;
+        left: 663px;
+    }
+    .newClassContact{
+        border: 1px solid black;
+        height: 533px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 73px;
+        left: 536px;
+        background: white;
+        display: block;
+    }
+    .newClassMessage{
+        border: 1px solid black;
+        height: 505px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 102px;
+        left: 536px;
+        background: white;
+        display: block;
+    }
+    .header-contact{
+        height: 30px;
+        width: 314px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        z-index: 2;
+        top: 115px;
+        left: 536px;
+        box-sizing: border-box;
+        padding: 3px 10px 3px 10px;
+
+    }
+    .header-contact-border{
+        height: 29px;
+        width: 290px;
+        border-bottom: 2px solid lightgrey;
+    }
+    .header-contact-border-tmp p{
+        display: none;
+    }
+    .header-contact-border-tmp i{
+        display: none;
+    }
+    .header-contact p{
+        float: left;
+        font-size: 1.3em;
+        font-weight: bold;
+        display: block;
+    }
+    .header-contact i{
+        float: right;
+        font-size: 20px;
+        margin-top: 5px;
+        display: block;
+    }
+    .header-contact i:hover{color: limegreen}
+    .main-content-tmp{
+        position: relative;
+        overflow-y: scroll;
+
+    }
+  .main-content{
+      height: 455px;
+      width: 314px;
+      background-size: cover; /* Масштабируем фон */
+      position: absolute;
+      top: 150px;
+      left: 536px;
+      box-sizing: border-box;
+      padding: 3px 10px 3px 10px;
+  }
+    .fa-trash-alt{
+        float: right;
+        font-size: 1.2em;
+        margin-right: 7px;
+    }
+    .fa-trash-alt:hover{
+        color: red;
+    }
+    .fa-phone{
+        float: right;
+        font-size: 1.2em;
+        margin-right: 7px;
+    }
+    .fa-phone:hover{
+        color: limegreen;
+    }
+    .fa-envelope{
+        float: right;
+        font-size: 1.2em;
+        margin-right: 7px;
+    }
+    .fa-envelope:hover{
+        color: orange;
+    }
+    .header-contact-plus{
+        height: 30px;
+        width: 314px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        z-index: 2;
+        top: 115px;
+        left: 536px;
+        box-sizing: border-box;
+        padding: 3px 10px 3px 10px;
+    }
+    .header-contact-border-plus-tmp{
+        height: 29px;
+        width: 290px;
+        border-bottom: 2px solid lightgrey;
+        padding: 0 12px 0 12px;
+        display:none;
+        box-sizing: border-box;
+    }
+    .header-contact-border-plus-tmp p{
+        display: none;
+    }
+    .header-contact-border-plus-tmp span{
+        display: none;
+    }
+    .header-contact-plus p{
+        float: left;
+        font-size: 17px;
+        cursor: pointer;
+        display: block;
+        color: red;
+    }
+    .header-contact-plus span{
+        float: right;
+        font-size: 17px;
+        display: block;
+        cursor: pointer;
+        color: limegreen;
+    }
+    .main-content-plus{
+        height: 455px;
+        width: 314px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 150px;
+        left: 536px;
+        box-sizing: border-box;
+        padding: 3px 10px 3px 10px;
+    }
+    #box{
+        display: none;
+        margin: 15px 0 0 5px;
+
+    }
+    #name{
+        width: 265px;
+        height: 20px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 2px solid lightgrey;
+
+    }
+    #number{
+        width: 265px;
+        height: 20px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 2px solid lightgrey;
+    }
+    .main-block-call{
+        border: 1px solid black;
+        height: 533px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 73px;
+        left: 536px;
+        background: black;
+        display: block;
+
+    }
+    .call-user-info{
+        color: white;
+        margin-top: 40%;
+        text-align: center;
+        width: 80px;
+        margin-left: 116px;
+        font-size: 2em;
+    }
+    .call-cancel-tmp{
+        display: none;
+    }
+    .call-cancel{
+        border: 1px solid red;
+        border-radius: 30px;
+        background: red;
+        color: white;
+        margin-top: 15%;
+        text-align: center;
+        width: 90px;
+        margin-left: 106px;
+        font-size: 1.5em;
+        padding: 5px;
+        display: block;
+
+    }
+    .timer{
+        color: white;
+        margin-top: 65%;
+        text-align: center;
+        width: 80px;
+        margin-left: 116px;
+        font-size: 1.2em;
+    }
+
+    .main-block-message{
+        border: 1px solid black;
+        height: 533px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 73px;
+        left: 536px;
+        background: white;
+        display: block;
+    }
+    .header-message{
+        text-align: center;
+        height: 30px;
+        width: 271px;
+        background-size: cover; /* Масштабируем фон */
+        z-index: 2;
+        position: relative;
+        top: 5%;
+        left:6%;
+        box-sizing: border-box;
+        padding: 3px 10px 3px 10px;
+        border-bottom: 2px solid lightgrey;
+        font-size: 1.3em;
+    }
+    .content-block-message{
+        height: 79%;
+
+        position: relative;
+        top:6%;
+        padding: 0 10px 0 10px;
+    }
+
+    .footer-block-message{
+        height: 32px;
+        background-size: cover; /* Масштабируем фон */
+        position: relative;
+        z-index: 2;
+        top: 8%;
+        box-sizing: border-box;
+
+    }
+    .text-message-tmp{
+        display: none;
+
+    }
+    .text-message{
+        display: inline;
+        width: 83%;
+        height: 70%;
+        position: relative;
+        margin-left: 5px;
+        border-radius: 5px;
+        border-color: lightgrey;
+        margin-top: 2px;
+        padding-left: 3px;
+    }
+    .fa-telegram-tmp{
+        display: none;
+
+    }
+    .fa-telegram{
+        display: inline;
+        font-size: 1.9em;
+        float: right;
+        margin-right: 6px;
+
+    }
+    .fa-telegram:hover{
+        color: #429bf4;
+        cursor: pointer;
+
+    }
+    .fa-comments{
+        float: right;
+        font-size: 1.5em;
+        margin-right: 35px;
+    }
+    .fa-comments:hover{
+        color: #42f442;
+    }
+    .fa-map-marker-alt{
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        font-size: 2em;
+        color: darkgreen;
+        cursor: pointer;
+    }
+    .mapin{
+        display: none;
+        border: 1px solid black;
+        height: 503px;
+        width: 312px;
+        background-size: cover; /* Масштабируем фон */
+        position: absolute;
+        top: 103px;
+        left: 536px;
+        background: white;
+
+    }
+
+</style>
+<body>
+
+<div class="main-block">
+    <img src="2.jpg">
+    <div class="screen-main"><i class="fas fa-map-marker-alt"></i></div>
+    <div class="screen-top">
+        <i class="fas fa-battery-full"></i>
+        <i class="fas fa-battery-half"></i>
+        <i class="fas fa-battery-quarter"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fab fa-bluetooth-b"></i>
+        <i id="time"></i>
+    </div>
+    <div class="screen-bottom">
+        <i class="fas fa-phone-square"></i>
+        <i class="fas fa-envelope-square"></i>
+    </div>
+    <div class="mess-warn-tmp"></div>
+    <div class="main-btn"></div>
+    <div class="header-contact-tmp ">
+        <div class="header-contact-border-tmp ">
+            <p>Contacts</p>
+            <i class="fas fa-user-plus"></i>
+        </div>
+    </div>
+    <div class="main-content-tmp"></div>
+    <div class="contact-tmp"></div></div>
+    <div class="message-tmp"></div>
+    <div class="header-contact-plus-tmp">
+        <div class="header-contact-border-plus-tmp">
+            <p>Cancel</p>
+            <span>Ok</span>
+        </div>
+    </div>
+    <div class="main-content-plus-tmp">
+        <div id="box">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" id="name" placeholder="Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="number" placeholder="Number">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="main-block-call-tmp">
+       <div class="call-user-info-tmp"></div>
+        <div class="timer-tmp"></div>
+        <div class="call-cancel-tmp">
+            <i class="fas fa-phone-slash"></i>
+        </div>
+    </div>
+    <div class="main-block-message-tmp">
+        <div class="header-message-tmp"></div>
+        <div class="content-block-message-tmp">
+        </div>
+        <div class="footer-block-message-tmp">
+            <input type="text" class="text-message-tmp">
+            <i class="fab fa-telegram-tmp"></i>
+        </div>
+    </div>
+
+        <div class="mapin">
+            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1373.797354870912!2d30.754959450113123!3d46.47653531445098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4f8aa75fd999dc59!2z0J7QtNC10YHRgdC60LjQuSDQm9GD0L3QsNC_0LDRgNC6!5e0!3m2!1sru!2sua!4v1523687375577" width="311" height="502" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+</div>
+<div id="backgroundaudio">
+    <audio class="audio">
+        <source src='04335.mp3'></source>
+    </audio>
+</div>
+
+<script>
+    let tel = document.querySelector(".fa-phone-square");
+    let mess = document.querySelector(".fa-envelope-square");
+    let mainContentTmp = document.querySelector('.main-content-tmp');
+    let min = 0;
+    let sec = 0;
+    let hour = 0;
+    let timerSec;
+    let id;
+    let arr=[];
+    let country = {
+        cities: [
+            { name: "Alex", number: '0979883123', message: 'Hi Alex%Hi alex again' },
+            { name: "Nick", number: '0639683323',message: 'Hi Nick%Hi nick again' },
+            { name: "Odin", number: '0919853123', message: 'Hi Odin%Hi odin again' }
+        ]
+    };
+    //time
+    function formatDate(date) {
+
+        var dd = date.getHours();
+        if (dd < 10) dd = '0' + dd;
+
+        var mm = date.getMinutes();
+        if (mm < 10) mm = '0' + mm;
+
+        return dd + ':' + mm;
+    }
+    setInterval(function () {
+        var d = new Date();
+        document.getElementById('time').innerHTML =  formatDate(d);
+    },1000);
+
+
+
+    function contact() {
+        mainContentTmp.innerHTML='';
+        for(let i=0; i < country.cities.length; i++){
+
+            let element = document.createElement("div");
+            let element1 = document.createElement("span");
+            let element2 = document.createElement("span");
+            element.id = `contact-${i}`;
+            let tmp0 = country.cities[i].message;
+            let tmp = country.cities[i].name;
+            let tmp1 = country.cities[i].number;
+
+            element1.appendChild(document.createTextNode(tmp));
+            element2.appendChild(document.createTextNode(tmp1));
+            element.appendChild(element1);
+            element.innerHTML +='</br>';
+            element.appendChild(element2);
+
+            element.innerHTML += `<i class="fas fa-trash-alt" id="${i}" "></i>`;
+            element.innerHTML += `<i class="fas fa-envelope"></i>`;
+            element.innerHTML += `<i class="fas fa-phone"></i>`;
+            document.querySelector('.main-content').appendChild(element);
+
+            let nameDiv=document.getElementById(`contact-${i}`);
+            let nameDivP=nameDiv.children[0];
+
+            let nameDivSpan=nameDiv.children[2];
+            nameDiv.style.width = "290px";
+            nameDiv.style.overflow='hidden';
+            nameDiv.style.height = '45px';
+            nameDiv.style.padding='5px 5px';
+            nameDiv.style.fontSize='15px';
+            nameDiv.style.zIndex = '2';
+            nameDiv.style.position = 'relative';
+            nameDiv.style.marginTop='5px';
+            nameDiv.style.boxSizing = 'border-box';
+            nameDivP.style.fontSize='17px';
+            nameDivP.style.fontWeight='300';
+            nameDivP.style.width='140px';
+            nameDivSpan.style.fontSize='12px';
+            nameDivSpan.style.color='grey';
+
+
+            nameDiv.children[3].onclick = function (e) {
+                nameDiv.style.display='none';
+               id = this.getAttribute('id');
+                country.cities.splice(id,1);
+
+            };
+
+            nameDiv.children[5].onclick = function (e) {
+                //alert(`Hello ${nameDiv.children[0].textContent}`);
+                document.querySelector(".contact-tmp").classList.remove('newClassContact');
+                document.querySelector(".message-tmp").classList.remove('newClassContact');
+                document.querySelector(".header-contact-tmp").classList.remove('header-contact');
+                document.querySelector(".header-contact-border-tmp").classList.remove('header-contact-border');
+                document.querySelector(".main-content-tmp").classList.remove("main-content");
+                mainContentTmp.style.display='none';
+                document.querySelector(".header-contact-border-plus-tmp").style.display='none';
+                document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+                document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+                document.querySelector(".main-block-call-tmp").classList.add("main-block-call");
+                document.querySelector(".call-user-info-tmp").classList.add("call-user-info");
+                document.querySelector(".call-cancel-tmp").classList.add("call-cancel");
+                document.querySelector(".timer-tmp").classList.add("timer");
+                document.querySelector(".call-user-info-tmp").innerText+=`${nameDiv.children[0].textContent}`;
+                var aud = new Audio('');
+                function init()
+                {   tick();
+                   timerSec = setInterval(tick, 1000);
+                }
+
+                function tick()
+                {//не закончил код
+                    sec++;
+                    if(sec==30){
+                    document.querySelector(".contact-tmp").classList.add("newClassContact");
+                    document.querySelector(".header-contact-tmp").classList.add("header-contact");
+                    document.querySelector(".header-contact-border-tmp").classList.add("header-contact-border");
+                    document.querySelector(".main-content-tmp").classList.add("main-content");
+                    mainContentTmp.style.display = 'block';
+                    tel.style.display = 'none';
+                    mess.style.display = 'none';
+                    document.querySelector(".header-contact-border-plus-tmp").style.display = 'none';
+                    document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+                    document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+                    document.querySelector(".main-block-call-tmp").classList.remove("main-block-call");
+                    document.querySelector(".call-user-info-tmp").classList.remove("call-user-info");
+                    document.querySelector(".call-cancel-tmp").classList.remove("call-cancel");
+                    document.querySelector(".call-user-info-tmp").innerText='';
+                    document.querySelector(".timer-tmp").classList.remove("timer");
+                    document.querySelector(".timer-tmp").innerHTML='';
+                    min = 0;
+                    sec = 0;
+                    hour = 0;
+                    clearInterval(timerSec);
+                    // вывод всех элементов из country.cities
+                    contact();
+                }
+                   else if(sec<59){
+                        if(sec<10)document.querySelector('.timer-tmp').innerText=`0${hour}:0${min}:0${sec}`;
+                        else{
+                            document.querySelector('.timer-tmp').innerText=`0${hour}:0${min}:${sec}`;
+                        }
+
+                    }
+                    else if(sec>59){
+                        sec=0;
+                        min++;
+                        document.querySelector('.timer-tmp').innerText=`0${hour}:0${min}:0${sec}`;
+                    }
+
+                }
+                init();
+                document.querySelector('.audio').play();
+
+
+            };
+            nameDiv.children[4].onclick = function (e){
+                document.querySelector(".contact-tmp").classList.remove('newClassContact');
+                document.querySelector(".message-tmp").classList.remove('newClassContact');
+                document.querySelector(".header-contact-tmp").classList.remove('header-contact');
+                document.querySelector(".header-contact-border-tmp").classList.remove('header-contact-border');
+                document.querySelector(".main-content-tmp").classList.remove("main-content");
+                mainContentTmp.style.display='none';
+                document.querySelector(".header-contact-border-plus-tmp").style.display='none';
+                document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+                document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+                document.querySelector(".main-block-message-tmp").classList.add("main-block-message");
+                document.querySelector(".header-message-tmp").classList.add("header-message");
+                document.querySelector(".content-block-message-tmp").classList.add("content-block-message");
+                document.querySelector(".footer-block-message-tmp").classList.add("footer-block-message");
+                document.querySelector(".fa-telegram-tmp").classList.add("fa-telegram");
+                document.querySelector(".text-message-tmp").classList.add("text-message");
+                document.querySelector(".header-message").innerText=``;
+                document.querySelector(".header-message").innerText+=`${nameDiv.children[0].textContent}`;
+                arr = tmp0.split('%');
+                document.querySelector('.content-block-message').innerHTML='';
+                    for(let i=0; i<arr.length; i++){
+
+                        let elemMess = document.createElement("div");
+                        elemMess.id = `mess-${i}`;
+                        elemMess.appendChild(document.createTextNode(arr[i]));
+                        document.querySelector('.content-block-message').appendChild(elemMess);
+                        let idMessage = document.getElementById(`mess-${i}`);
+
+                        idMessage.style.border = '1px solid black';
+                        idMessage.style.background = '#429bf4';
+                        idMessage.style.boxSizing='border-box';
+                        idMessage.style.padding = '3px 3px';
+                        idMessage.style.width = '70%';
+                        idMessage.style.height = '30px';
+                        idMessage.style.float = 'right';
+                        idMessage.style.marginTop = '3px';
+                        idMessage.style.borderColor ='#429bf4';
+                        idMessage.style.borderRadius = '8px';
+
+
+
+
+
+
+                    }
+                document.querySelector(".fa-telegram-tmp").onclick = function (e){
+                    let IdMess = document.querySelector(".text-message-tmp").value;
+                    arr=[];
+                    country.cities[i].message = country.cities[i].message + `%${IdMess}`;
+                    console.log(arr);
+                    let tmp = country.cities[i].message.split('%');
+                    let forMass = arr.concat(tmp);
+
+                    console.log(country.cities[i].message);
+                    console.log(forMass);
+                    document.querySelector(".text-message-tmp").value ='';
+                    document.querySelector('.content-block-message').innerHTML='';
+                    for(let i=0; i<forMass.length; i++){
+
+                        let elemMess = document.createElement("div");
+                        elemMess.id = `mess-${i}`;
+                        elemMess.appendChild(document.createTextNode(forMass[i]));
+                        document.querySelector('.content-block-message').appendChild(elemMess);
+                        let idMessage = document.getElementById(`mess-${i}`);
+
+                        idMessage.style.border = '1px solid black';
+                        idMessage.style.background = '#429bf4';
+                        idMessage.style.boxSizing='border-box';
+                        idMessage.style.padding = '3px 3px';
+                        idMessage.style.width = '70%';
+                        idMessage.style.height = '30px';
+                        idMessage.style.float = 'right';
+                        idMessage.style.marginTop = '3px';
+                        idMessage.style.borderColor ='#429bf4';
+                        idMessage.style.borderRadius = '8px';
+                    }
+                }
+
+            };
+
+        }
+
+    }
+    function message() {
+        document.querySelector('.message-tmp').innerHTML='';
+        for(let i=0; i < country.cities.length; i++){
+
+            let element = document.createElement("div");
+            element.id = `messBlock-${i}`;
+            let tmp0 = country.cities[i].message;
+            let tmp = country.cities[i].name;
+            let tmp1 = country.cities[i].number;
+            element.appendChild(document.createTextNode(tmp));
+            element.innerHTML += `<i class="fas fa-comments"id="m-${i}"></i>`;
+            document.querySelector('.message-tmp').appendChild(element);
+
+            let nameDiv=document.getElementById(`messBlock-${i}`);
+
+            nameDiv.style.width = "100%";
+            nameDiv.style.overflow='hidden';
+            nameDiv.style.height = '45px';
+            nameDiv.style.padding='5px 5px';
+            nameDiv.style.fontSize='1.3em';
+            nameDiv.style.zIndex = '2';
+            nameDiv.style.position = 'relative';
+            nameDiv.style.marginTop='5px';
+            nameDiv.style.boxSizing = 'border-box';
+            nameDiv.style.marginLeft='15px';
+
+            nameDiv.children[0].onclick = function (e){
+                document.querySelector('.message-tmp').innerHTML='';
+                document.querySelector(".contact-tmp").classList.remove('newClassContact');
+                document.querySelector(".message-tmp").classList.remove('newClassContact');
+                document.querySelector(".header-contact-tmp").classList.remove('header-contact');
+                document.querySelector(".header-contact-border-tmp").classList.remove('header-contact-border');
+                document.querySelector(".main-content-tmp").classList.remove("main-content");
+                mainContentTmp.style.display='none';
+                document.querySelector(".header-contact-border-plus-tmp").style.display='none';
+                document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+                document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+                document.querySelector(".message-tmp").classList.remove("newClassMessage");
+                document.querySelector(".main-block-message-tmp").classList.add("main-block-message");
+                document.querySelector(".header-message-tmp").classList.add("header-message");
+                document.querySelector(".content-block-message-tmp").classList.add("content-block-message");
+                document.querySelector(".footer-block-message-tmp").classList.add("footer-block-message");
+                document.querySelector(".fa-telegram-tmp").classList.add("fa-telegram");
+                document.querySelector(".text-message-tmp").classList.add("text-message");
+                document.querySelector(".header-message").innerText=``;
+                document.querySelector(".header-message").innerText+=`${nameDiv.textContent}`;
+                arr = tmp0.split('%');
+                document.querySelector('.content-block-message').innerHTML='';
+                for(let i=0; i<arr.length; i++){
+
+                    let elemMess = document.createElement("div");
+                    elemMess.id = `mess-${i}`;
+                    elemMess.appendChild(document.createTextNode(arr[i]));
+                    document.querySelector('.content-block-message').appendChild(elemMess);
+                    let idMessage = document.getElementById(`mess-${i}`);
+
+                    idMessage.style.border = '1px solid black';
+                    idMessage.style.background = '#429bf4';
+                    idMessage.style.boxSizing='border-box';
+                    idMessage.style.padding = '3px 3px';
+                    idMessage.style.width = '70%';
+                    idMessage.style.height = '30px';
+                    idMessage.style.float = 'right';
+                    idMessage.style.marginTop = '3px';
+                    idMessage.style.borderColor ='#429bf4';
+                    idMessage.style.borderRadius = '8px';
+
+
+
+
+
+
+                }
+                document.querySelector(".fa-telegram-tmp").onclick = function (e){
+                    let IdMess = document.querySelector(".text-message-tmp").value;
+                    arr=[];
+                    country.cities[i].message = country.cities[i].message + `%${IdMess}`;
+                    console.log(arr);
+                    let tmp = country.cities[i].message.split('%');
+                    let forMass = arr.concat(tmp);
+
+                    console.log(country.cities[i].message);
+                    console.log(forMass);
+                    document.querySelector(".text-message-tmp").value ='';
+                    document.querySelector('.content-block-message').innerHTML='';
+                    for(let i=0; i<forMass.length; i++){
+
+                        let elemMess = document.createElement("div");
+                        elemMess.id = `mess-${i}`;
+                        elemMess.appendChild(document.createTextNode(forMass[i]));
+                        document.querySelector('.content-block-message').appendChild(elemMess);
+                        let idMessage = document.getElementById(`mess-${i}`);
+
+                        idMessage.style.border = '1px solid black';
+                        idMessage.style.background = '#429bf4';
+                        idMessage.style.boxSizing='border-box';
+                        idMessage.style.padding = '3px 3px';
+                        idMessage.style.width = '70%';
+                        idMessage.style.height = '30px';
+                        idMessage.style.float = 'right';
+                        idMessage.style.marginTop = '3px';
+                        idMessage.style.borderColor ='#429bf4';
+                        idMessage.style.borderRadius = '8px';
+                    }
+                }
+
+            };
+
+        }
+
+    }
+
+    document.querySelector('.call-cancel-tmp').onclick=function(e) {
+        document.querySelector(".contact-tmp").classList.add("newClassContact");
+        document.querySelector(".header-contact-tmp").classList.add("header-contact");
+        document.querySelector(".header-contact-border-tmp").classList.add("header-contact-border");
+        document.querySelector(".main-content-tmp").classList.add("main-content");
+        mainContentTmp.style.display = 'block';
+        tel.style.display = 'none';
+        mess.style.display = 'none';
+        document.querySelector(".header-contact-border-plus-tmp").style.display = 'none';
+        document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+        document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+        document.querySelector(".main-block-call-tmp").classList.remove("main-block-call");
+        document.querySelector(".call-user-info-tmp").classList.remove("call-user-info");
+        document.querySelector(".call-cancel-tmp").classList.remove("call-cancel");
+        document.querySelector(".call-user-info-tmp").innerText='';
+        document.querySelector(".timer-tmp").classList.remove("timer");
+        document.querySelector(".timer-tmp").innerHTML='';
+        min = 0;
+        sec = 0;
+        hour = 0;
+        clearInterval(timerSec);
+        // вывод всех элементов из country.cities
+        contact();
+        document.querySelector('.audio').pause();
+    };
+
+    document.querySelector(".header-contact-border-plus-tmp").children[1].onclick=function(e) {
+            let a = document.getElementById("name").value;
+            let b = document.getElementById("number").value;
+            country.cities.push({name: `${a}`, number: `${b}`, message:`Hello`});
+            document.getElementById('box').style.display = 'none';
+
+            document.querySelector(".contact-tmp").classList.add("newClassContact");
+
+            document.querySelector(".header-contact-tmp").classList.add("header-contact");
+            document.querySelector(".header-contact-border-tmp").classList.add("header-contact-border");
+            document.querySelector(".main-content-tmp").classList.add("main-content");
+            mainContentTmp.style.display = 'block';
+            tel.style.display = 'none';
+            mess.style.display = 'none';
+            document.querySelector(".header-contact-border-plus-tmp").style.display = 'none';
+            document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+            document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+
+            // вывод всех элементов из country.cities
+            contact();
+
+
+    };
+    document.querySelector(".header-contact-border-plus-tmp").children[0].onclick=function(e) {
+        document.getElementById('box').style.display='none';
+
+        document.querySelector(".contact-tmp").classList.add("newClassContact");
+        document.querySelector(".header-contact-tmp").classList.add("header-contact");
+        document.querySelector(".header-contact-border-tmp").classList.add("header-contact-border");
+        document.querySelector(".main-content-tmp").classList.add("main-content");
+        mainContentTmp.style.display='block';
+        tel.style.display = 'none';
+        mess.style.display = 'none';
+        document.querySelector(".header-contact-border-plus-tmp").style.display='none';
+        document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+        document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+
+        // вывод всех элементов из country.cities
+        contact();
+    };
+
+    //phone and message
+    document.querySelector(".fa-phone-square").onclick=function(e) {
+        document.querySelector(".contact-tmp").classList.add("newClassContact");
+        document.querySelector(".header-contact-tmp").classList.add("header-contact");
+        document.querySelector(".header-contact-border-tmp").classList.add("header-contact-border");
+        document.querySelector(".main-content-tmp").classList.add("main-content");
+
+        mainContentTmp.style.display='block';
+        tel.style.display = 'none';
+        mess.style.display = 'none';
+
+        // вывод всех элементов из country.cities
+        contact();
+    };
+    document.querySelector(".fa-envelope-square").onclick=function(e) {
+        document.querySelector(".message-tmp").classList.add("newClassMessage");
+        mainContentTmp.style.display='block';
+        tel.style.display = 'none';
+        mess.style.display = 'none';
+        setTimeout(function () {
+            document.querySelector(".mess-warn-tmp").classList.add("mess-warn");
+            document.querySelector(".mess-warn-tmp").innerHTML='';
+            document.querySelector('.fa-battery-full').style.display='none';
+            document.querySelector('.fa-battery-half').style.display='block';
+            let element = document.createElement("div");
+            element.appendChild(document.createTextNode('Low level power'));
+            document.querySelector(".mess-warn-tmp").appendChild(element);
+            document.querySelector(".mess-warn-tmp").onclick=function(e){
+                document.querySelector(".mess-warn-tmp").classList.remove("mess-warn");
+            };
+        },3000);
+
+        // вывод всех элементов из country.cities
+        message();
+    };
+
+    document.querySelector(".fa-map-marker-alt").onclick=function(e) {
+           document.querySelector('.mapin').style.display='block';
+    };
+
+    document.querySelector(".fa-user-plus").onclick=function(e) {
+        document.querySelector(".message-tmp").classList.remove('newClassContact');
+        document.querySelector(".header-contact-tmp").classList.remove('header-contact');
+        document.querySelector(".header-contact-border-tmp").classList.remove('header-contact-border');
+        document.querySelector(".main-content-tmp").classList.remove("main-content");
+        mainContentTmp.style.display='none';
+        document.querySelector(".header-contact-border-plus-tmp").style.display='block';
+        document.getElementById('box').style.display='block';
+        document.querySelector(".header-contact-plus-tmp").classList.add("header-contact-plus");
+        document.querySelector(".main-content-plus-tmp").classList.add("main-content-plus");
+        document.getElementById("name").value='';
+        document.getElementById("number").value='';
+
+
+    };
+
+
+    document.querySelector(".main-btn").onclick=function(e) {
+        tel.style.display = 'block';
+        mess.style.display = 'block';
+        document.querySelector(".contact-tmp").classList.remove('newClassContact');
+        document.querySelector(".message-tmp").classList.remove('newClassContact');
+        document.querySelector(".header-contact-tmp").classList.remove('header-contact');
+        document.querySelector(".header-contact-border-tmp").classList.remove('header-contact-border');
+        document.querySelector(".main-content-tmp").classList.remove("main-content");
+        mainContentTmp.style.display='none';
+        document.querySelector(".header-contact-border-plus-tmp").style.display='none';
+        document.querySelector(".header-contact-plus-tmp").classList.remove("header-contact-plus");
+        document.querySelector(".main-content-plus-tmp").classList.remove("main-content-plus");
+        document.querySelector(".main-block-call-tmp").classList.remove("main-block-call");
+        document.querySelector(".call-user-info-tmp").classList.remove("call-user-info");
+        document.querySelector(".call-cancel-tmp").classList.remove("call-cancel");
+        document.querySelector(".timer-tmp").classList.remove("timer");
+        document.querySelector(".call-user-info-tmp").innerText='';
+        document.querySelector(".timer-tmp").innerHTML='';
+        document.querySelector(".main-block-message-tmp").classList.remove("main-block-message");
+        document.querySelector(".header-message-tmp").classList.remove("header-message");
+        document.querySelector(".content-block-message-tmp").classList.remove("content-block-message");
+        document.querySelector(".footer-block-message-tmp").classList.remove("footer-block-message");
+        document.querySelector(".fa-telegram-tmp").classList.remove("fa-telegram");
+        document.querySelector(".text-message-tmp").classList.remove("text-message");
+        document.querySelector('.content-block-message-tmp').innerHTML='';
+        document.querySelector('.header-message-tmp').innerHTML='';
+        document.querySelector(".message-tmp").classList.remove("newClassMessage");
+        document.querySelector('.message-tmp').innerHTML='';
+        document.querySelector('.mapin').style.display='none';
+        document.querySelector('.message-tmp').innerHTML='';
+    };
+
+
+
+
+</script>
+</body>
+</html>
