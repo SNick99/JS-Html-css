@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid gray;
+    }
+</style>
+<body>
+<div id='resultTrap'>
+    <h2>Модифицированным методом Эйлера решить задачу Коши</h2>
+    <table>
+        <tr class='i'>
+
+        </tr>
+        <tr class='xi'>
+
+        </tr>
+        <tr class='yi'>
+
+        </tr>
+    </table>
+</div>
+<!-- Plotly chart will be drawn inside this DIV -->
+<div id="myDiv" style="width: 100%; height: 500px;"></div>
+<script>
+    let a =1;
+    let b=4.5;
+    let x0 =0.5;
+    let y0 = 0.6;
+    let h =0.05;
+    let x1 =x0;
+    let y1 =y0;
+    function MyFunc(x) {
+        return (3-0.1*x*Math.exp(-1))
+    }
+    let x =[];
+    let y =[];
+    let count=0;
+    let tmp1='<td>I</td>';
+    let tmp2=' <td>Xi</td>';
+    let tmp3 = '<td>Yi</td>';
+    for(let i=a; i<b; i+=h){
+        x1+=i;
+        y1+=i*MyFunc(x1);
+        x.push(x1);
+        y.push(y1);
+
+        count++;
+        tmp1+='<td>'+ count + '</td>';
+        tmp2 +='<td>' +x1.toFixed(1) + '</td>';
+        tmp3+='<td>' + y1.toFixed(1) + '</td>';
+    }
+    document.querySelectorAll('#resultTrap .i')[0].innerHTML=tmp1;
+    document.querySelectorAll('#resultTrap .xi')[0].innerHTML=tmp2;
+    document.querySelectorAll('#resultTrap .yi')[0].innerHTML=tmp3;
+
+
+    let trace3 = {
+        x: x,
+        y: y,
+
+        mode: 'lines+markers'
+    };
+
+
+   let data = [  trace3 ];
+
+    let layout = {};
+    Plotly.newPlot('myDiv', data, layout);
+</script>
+</body>
+</html>
